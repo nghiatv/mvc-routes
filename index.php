@@ -5,14 +5,13 @@
  * Date: 07/08/2016
  * Time: 8:01 CH
  */
+include "config.php";
 
+include "libs/bootstrap.php";
 
-include "Route.php";
+$app = new application();
 
-$route = new route( array(
-    'BASE_PATH' =>"/mvc-routes"
-));
-
-
-echo $route->getRequestPath();
-echo "<pre>"; var_dump($_SERVER); echo "</pre>"; exit;
+echo "<pre>";
+var_dump($app->getParam());
+echo "</pre>";
+exit;
