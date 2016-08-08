@@ -9,6 +9,14 @@
 
 function __autoload($class)
 {
+    if (!file_exists(dirname(PATH_APPLICATION) . "/system/base_controller.php")) {
+        die("Base controller not found");
+    }
+    require dirname(PATH_APPLICATION) . "/system/base_controller.php";
+
     include_once __DIR__ . "/" . $class . ".php";
+
+
+
 }
 

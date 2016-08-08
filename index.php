@@ -10,8 +10,3 @@ include "config.php";
 include "libs/bootstrap.php";
 
 $app = new application();
-
-echo "<pre>";
-var_dump($app->getParam());
-echo "</pre>";
-exit;

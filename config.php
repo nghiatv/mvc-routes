@@ -7,6 +7,7 @@
  */
 
 //Thong so ve database
+define("DB_TYPE",'mysql');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
@@ -14,6 +15,8 @@ define('DB_DBNAME', 'mvc-project');
 
 
 define('PATH_APPLICATION', __DIR__ . "/app");
+
+define('BASE_PATH',"http://localhost/mvc-routes");
 
 define('ENVIRONMENT', 'development');
 
