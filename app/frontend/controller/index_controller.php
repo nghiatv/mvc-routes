@@ -13,27 +13,34 @@ class index_controller extends base_controller
         $limit = 5;
         //load view nao
         $this->loadModel('index');
+        // $this->model la 1 object cua cai model dc load
 
-        $all_post = count($this->model->getAll());
+        // xu ly phan trang
 
-        $total_page = ceil($all_post / $limit);
+        $total_post = $this->model->getTotalPost()['total_post'];
+
+
+        $total_page = ceil($total_post / $limit);
 
         if (isset($_GET['page'])) {
             $result = $this->model->getData($limit, $_GET['page']);
         } else {
             $result = $this->model->getData($limit,1);
         }
-//        echo "<pre>";var_dump($result);echo "</pre>"; exit;
+
+
+        // truyen du lieu vao view
+
         $this->loadView('index', array(
             'result' => $result,
-            'title' => 'Tien cookie cookie',
-            'description' => "vai ca lon neh???",
+            'title' => 'Tiên Cúc Ku',
+            'description' => "",
             'current_page' => isset($_GET['page']) ? $_GET['page'] : 1,
             'total_page' => $total_page
         ));
 
 
-//        echo "<pre>";var_dump($result);echo "</pre>";
+
 
 
     }

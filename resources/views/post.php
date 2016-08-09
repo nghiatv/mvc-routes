@@ -1,4 +1,3 @@
-
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
 <header class="intro-header" style="background-image: url('public/img/home-bg.jpg')">

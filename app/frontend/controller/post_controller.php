@@ -13,10 +13,21 @@ class post_controller extends base_controller
         if (empty($param)) {
             $this->loadView('post');
         } else {
-            $this->loadView('detail-post');
+
+            // xu ly o cho co param truoc nha
+
+            $this->loadModel('post');
+            // this->model la mot object cua post_model
+
+            $result = $this->model->getDataById($param);
+
+//            echo "<pre>";var_dump($result);echo "</pre>"; exit;
+
+            $this->loadView('detail-post',array(
+                'post' => $result
+            ));
         }
     }
-
 
     public function index()
     {

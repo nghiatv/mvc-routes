@@ -23,6 +23,7 @@ class base_controller
         require dirname(PATH_APPLICATION) . "/resources/views/__template/footer.php";
 
     }
+
     public function loadModel($model)
     {
         $model = strtolower($model) . "_model";
@@ -33,6 +34,7 @@ class base_controller
         include PATH_APPLICATION."/model/".$model.".php";
         $this->model = new $model();
     }
+
     public function load404()
     {
         if (!file_exists(dirname(PATH_APPLICATION) . "/resources/views/404/404.php")) {

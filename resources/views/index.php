@@ -26,7 +26,7 @@
                             <?php echo $row['title'] ?>
                         </h2>
                         <h3 class="post-subtitle">
-                            <?php echo substr($row['content'], 0, 100) ?>
+                            <?php echo substr($row['content'], 0, 200)."...(See more)"?>
                         </h3>
                     </a>
                     <p class="post-meta">Posted by <a href="#"><?php echo $row['user_name'] ?></a> on September 24, 2014
@@ -40,7 +40,7 @@
 
                 <?php if ($current_page > 1) :?>
                 <li class="prev">
-                    <a style="float: left" href="?page=<?php echo($current_page - 1) ?>">&#x2190;  Newwer Posts </a>
+                    <a style="float: left" href="?page=<?php echo($current_page - 1) ?>">&#x2190;  Newer Posts </a>
                 </li>
                 <?php endif; ?>
                 <?php if ($current_page < $total_page) : ?>

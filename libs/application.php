@@ -51,8 +51,6 @@ class application
         }
 
 
-
-
     }
 
     /**

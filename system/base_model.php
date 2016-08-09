@@ -37,7 +37,7 @@ abstract class base_model
 
     public function getById($table, $id)
     {
-        $sql = "SELECT * FROM " . $table . " WHERE id  ?";
+        $sql = "SELECT * FROM " . $table . " WHERE id = ?";
         try {
             $this->stmt = $this->conn->prepare($sql);
             $this->stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -86,6 +86,5 @@ abstract class base_model
         $result = $this->stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-
 
 }
