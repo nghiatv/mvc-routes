@@ -6,10 +6,10 @@
  * Date: 8/8/16
  * Time: 2:53 PM
  */
-class base_model
+abstract class base_model
 {
-    private $conn;
-    private $stmt;
+    protected $conn;
+    protected $stmt;
 
     function __construct()
     {
@@ -86,5 +86,6 @@ class base_model
         $result = $this->stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
 
 }

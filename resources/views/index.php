@@ -1,78 +1,57 @@
-
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('public/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Clean Blog</h1>
-                        <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<?php //echo "<pre>";var_dump($r);echo "</pre>"; exit; ?>
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('public/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                <div class="site-heading">
+                    <h1><?php echo $title ?></h1>
+                    <hr class="small">
+                    <span class="subheading"><?php echo $description ?></span>
                 </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post">
-                        <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
+</header>
 
-    <hr>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <?php foreach ($result as $row) : ?>
+                <div class="post-preview">
+                    <a href="post/<?php echo $row['id'] ?>">
+                        <h2 class="post-title">
+                            <?php echo $row['title'] ?>
+                        </h2>
+                        <h3 class="post-subtitle">
+                            <?php echo substr($row['content'], 0, 100) ?>
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by <a href="#"><?php echo $row['user_name'] ?></a> on September 24, 2014
+                    </p>
+                </div>
+                <hr>
+
+            <?php endforeach; ?>
+            <!-- Pager -->
+            <ul class="pager">
+
+                <?php if ($current_page > 1) :?>
+                <li class="prev">
+                    <a style="float: left" href="?page=<?php echo($current_page - 1) ?>">&#x2190;  Newwer Posts </a>
+                </li>
+                <?php endif; ?>
+                <?php if ($current_page < $total_page) : ?>
+                    <li class="next">
+                        <a href="?page=<?php echo($current_page + 1) ?>">Older Posts →</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<hr>
 

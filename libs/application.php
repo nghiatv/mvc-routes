@@ -28,14 +28,14 @@ class application
 //        echo "<pre>";var_dump($this->param);echo "</pre>"; exit;
 
         if (!file_exists(PATH_APPLICATION . "/frontend/controller/".$controller.".php")){
-            die("Controller Not Found");
+          header("Location:".BASE_PATH."/p404");
         }
 
         require PATH_APPLICATION."/frontend/controller/".$controller.".php";
         // KIEM TRA XEM CLASS CO TON TAI HAY KHONG?
         $controllerObj = new $controller();
         if(!class_exists($controller)){
-            die("Class not Found");
+            header("Location:".BASE_PATH."/p404");
         }
 
 
@@ -47,7 +47,7 @@ class application
               $controllerObj->{$this->action}();
           }
         }else{
-            die("Method not found");
+            header("Location:".BASE_PATH."/p404");
         }
 
 

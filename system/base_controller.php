@@ -8,32 +8,37 @@
  */
 class base_controller
 {
-    protected $model;
-    protected $view;
+    public $model;
+    public $view;
 
-
-    public function __construct()
-    {
-
-    }
-
-    public function loadView($view)
+    public function loadView($view,$param = array())
     {
         if (!file_exists(dirname(PATH_APPLICATION) . "/resources/views/" . $view . ".php")) {
-            die("View not found");
+            header("Location:".BASE_PATH."/p404");
         }
-        include dirname(PATH_APPLICATION) . "/resources/views/__template/header.php";
-        include dirname(PATH_APPLICATION) . "/resources/views/" . $view . ".php";
-        include dirname(PATH_APPLICATION) . "/resources/views/__template/footer.php";
+
+        extract($param);
+        require dirname(PATH_APPLICATION) . "/resources/views/__template/header.php";
+        require dirname(PATH_APPLICATION) . "/resources/views/" . $view . ".php";
+        require dirname(PATH_APPLICATION) . "/resources/views/__template/footer.php";
 
     }
-
     public function loadModel($model)
     {
         $model = strtolower($model) . "_model";
         if (!file_exists(PATH_APPLICATION . "/model/" . $model . ".php")) {
-            die("Model not Found");
+            header("Location:".BASE_PATH."/p404");
         }
+
+        include PATH_APPLICATION."/model/".$model.".php";
         $this->model = new $model();
+    }
+    public function load404()
+    {
+        if (!file_exists(dirname(PATH_APPLICATION) . "/resources/views/404/404.php")) {
+            header("Location:".BASE_PATH."/p404");
+        }
+
+        include dirname(PATH_APPLICATION) . "/resources/views/404/404.php";
     }
 }

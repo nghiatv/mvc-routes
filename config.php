@@ -11,7 +11,7 @@ define("DB_TYPE",'mysql');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_DBNAME', 'mvc-project');
+define('DB_DBNAME', 'blog');
 
 
 define('PATH_APPLICATION', __DIR__ . "/app");
