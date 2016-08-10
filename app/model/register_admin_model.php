@@ -38,6 +38,10 @@ class register_admin_model extends base_model
         ";
 
         try {
+
+
+            $password = password_hash($password,PASSWORD_BCRYPT);
+//            echo "<pre>"; var_dump($password); echo "</pre>"; exit;
             $this->stmt = $this->conn->prepare($sql);
 
             $created_time = date('y-m-d');

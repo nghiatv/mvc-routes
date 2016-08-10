@@ -12,18 +12,23 @@ class login_admin_model extends base_model
 
     public function checkLogin($user, $pass)
     {
-        $sql = " SELECT count(*) as num FROM " . $this->table . " WHERE user_name = ?  AND user_pass = ? ";
+        $sql = " SELECT user_pass FROM " . $this->table . " WHERE user_name = ?";
         try {
             $this->stmt = $this->conn->prepare($sql);
             $this->stmt->bindParam(1, $user);
-            $this->stmt->bindParam(2, $pass);
             $this->stmt->execute();
         } catch (PDOException $e) {
             die($e->getMessage());
         }
-//        return $this->stmt->fetch();
-        if ($this->stmt->fetch()['num']) {
-            return true;
+
+        $hash = $this->stmt->fetch()['user_pass'];
+        if ($hash) {
+
+            if (password_verify($pass, $hash)) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

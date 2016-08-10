@@ -16,7 +16,7 @@ class register_controller extends base_controller
 {
     function view()
     {
-        unset($_SESSION['input']);
+
         $this->loadAdminView('register');
     }
 

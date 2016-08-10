@@ -1,5 +1,5 @@
 <?php include '_admin_template/header.php' ?>
-<?php //echo "<pre>";var_dump($_SESSION);echo "</pre>"; exit; ?>
+
     <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
@@ -52,7 +52,7 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox" name="agree"> Đồng ý <a href="<?php echo BASE_PATH; ?>/about">điều
+                                <input type="checkbox" name="agree" required > Đồng ý <a href="<?php echo BASE_PATH; ?>/about">điều
                                     khoản </a>thì tích
                             </label>
                         </div>

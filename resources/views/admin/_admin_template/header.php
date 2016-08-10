@@ -18,17 +18,8 @@
     <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/dist/css/skins/_all-skins.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/plugins/select2/select2.min.css">
 
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/plugins/morris/morris.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/plugins/datepicker/datepicker3.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/plugins/daterangepicker/daterangepicker.css">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="<?php echo BASE_PATH ; ?>/public/vendor/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

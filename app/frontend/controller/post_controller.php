@@ -33,4 +33,5 @@ class post_controller extends base_controller
     {
 //        $this->loadView
     }
+
 }

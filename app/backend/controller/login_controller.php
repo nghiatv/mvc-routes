@@ -48,16 +48,13 @@ class login_controller extends base_controller
                 header("Location:" . BASE_PATH . "/admin/login");
             } else {
                 $this->loadModel('login_admin');
-
+//                echo "<pre>"; var_dump($this->model->checkLogin($username,$password)); echo "</pre>"; exit;
                 if ($this->model->checkLogin($username, $password)) {
-                    Helper::setMes('success', "Đăng nhập thành công");
+//                    Helper::setMes('success', "Đăng nhập thành công");
                     $_SESSION['admin'] = $username;
                     header("Location:" . BASE_PATH . "/admin ");
                 } else {
                     Helper::setError('system', "Tài khoản mật khẩu không  đúng ");
-
-
-
                     header("Location:" . BASE_PATH . "/admin/login");
                 }
 

@@ -1,4 +1,4 @@
-<?php //echo "<pre>";var_dump($r);echo "</pre>"; exit; ?>
+<?php //echo "<pre>";var_dump($result);echo "</pre>"; exit; ?>
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
 <header class="intro-header" style="background-image: url('public/img/home-bg.jpg')">
