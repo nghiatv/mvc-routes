@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: Nimo
@@ -9,4 +10,20 @@ include "config.php";
 
 include "libs/bootstrap.php";
 
-$app = new application();
+$admin_pattern = "/(\/admin).*$/";
+
+/*
+ *  Cai dm tai thang  xammp no build nhu the nen phai chiu nhe.
+ *  con de chay binh thuong thi no phai la
+ *  $admin_pattern = "/^(\/admin).*$/";
+ *  nhe
+ */
+
+
+if (preg_match($admin_pattern, $_SERVER['REQUEST_URI'])) {
+    $app = new application_admin();
+} else {
+    $app = new application();
+}
+
+

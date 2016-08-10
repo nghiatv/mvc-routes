@@ -52,40 +52,6 @@ class application
 
 
     }
-
-    /**
-     * @return mixed
-     */
-    public function getController()
-    {
-        return $this->controller;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getParam()
-    {
-        return $this->param;
-    }
-
-    /**
-     * @return array|string
-     */
-    public function getRequestPath()
-    {
-        return $this->request_path;
-    }
-
-
     private function request_path()
     {
         $request_uri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));

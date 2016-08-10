@@ -25,7 +25,7 @@ class index_controller extends base_controller
         if (isset($_GET['page'])) {
             $result = $this->model->getData($limit, $_GET['page']);
         } else {
-            $result = $this->model->getData($limit,1);
+            $result = $this->model->getData($limit, 1);
         }
 
 
@@ -33,14 +33,11 @@ class index_controller extends base_controller
 
         $this->loadView('index', array(
             'result' => $result,
-            'title' => 'Tiên Cúc Ku',
-            'description' => "",
+            'title' => "Nghia's Blog",
+            'description' => " Một sản phẩm của Nghĩa nhé!",
             'current_page' => isset($_GET['page']) ? $_GET['page'] : 1,
             'total_page' => $total_page
         ));
-
-
-
 
 
     }

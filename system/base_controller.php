@@ -6,6 +6,7 @@
  * Date: 8/8/16
  * Time: 2:53 PM
  */
+//use Validation;
 class base_controller
 {
     public $model;
@@ -23,7 +24,13 @@ class base_controller
         require dirname(PATH_APPLICATION) . "/resources/views/__template/footer.php";
 
     }
-
+    public function loadAdminView($view,$param = array()){
+        if (!file_exists(dirname(PATH_APPLICATION) . "/resources/views/admin/" . $view . ".php")) {
+            header("Location:".BASE_PATH."/p404");
+        }
+        extract($param);
+        require dirname(PATH_APPLICATION) . "/resources/views/admin/" . $view . ".php";
+    }
     public function loadModel($model)
     {
         $model = strtolower($model) . "_model";
