@@ -26,5 +26,7 @@ function __autoload($class)
     // auto load cac class nam cung thu muc
     include_once __DIR__ . "/" . $class . ".php";
 
+//    include __DIR__."/PHPMailer/PHPMailerAutoload.php";
+
 }
 

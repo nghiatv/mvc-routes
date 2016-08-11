@@ -23,6 +23,9 @@ class index_controller extends base_controller
         $total_page = ceil($total_post / $limit);
 
         if (isset($_GET['page'])) {
+            if(!is_numeric($_GET['page'])) {
+                $_GET['page'] = $total_page + 1;
+            }
             $result = $this->model->getData($limit, $_GET['page']);
         } else {
             $result = $this->model->getData($limit, 1);

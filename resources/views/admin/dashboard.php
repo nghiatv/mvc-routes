@@ -125,7 +125,7 @@
                                     <tr>
                                         <td><?php echo $row['id']; ?></td>
                                         <td>
-                                            <a href="<?php echo BASE_PATH; ?>admin/post/edit/<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
+                                            <a href="<?php echo BASE_PATH; ?>/admin/post/edit/<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
                                         </td>
                                         <td><?php echo $row['created_time']; ?></td>
                                         <td>

@@ -33,5 +33,8 @@ class login_admin_model extends base_model
             return false;
         }
     }
+    public function getIdByName($name){
+        return parent::getByName('users',$name,'user_name');
+    }
 
 }

@@ -37,15 +37,11 @@
     });
 </script>
 <script>
-    $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        var editor = CKEDITOR.replace('editor1', {
-            filebrowseBrowserUrl: "<?php echo BASE_PATH?>/public/ckfinder",
-            filebrowserUploadUrl: '<?php echo BASE_PATH?>/public/ckfinder/connector?command=QuickUpload&type=Files'
-        });
-//        CKFinder.setupCKEditor(editor);
-
+    var roxyFileman = '<?php echo BASE_PATH?>/public/fileman/index.html';
+    $(function(){
+        CKEDITOR.replace( 'editor1',{filebrowserBrowseUrl:roxyFileman,
+            filebrowserImageBrowseUrl:roxyFileman+'?type=image',
+            removeDialogTabs: 'link:upload;image:upload'});
     });
 </script>
 <script type="text/javascript">

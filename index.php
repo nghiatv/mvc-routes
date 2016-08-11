@@ -1,6 +1,9 @@
 <?php
+
+
 session_start();
-/**
+//echo "<pre>";var_dump($_SESSION);echo "</pre>";
+/*
  * Created by PhpStorm.
  * User: Nimo
  * Date: 07/08/2016

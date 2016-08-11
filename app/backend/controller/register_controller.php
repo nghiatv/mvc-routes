@@ -66,7 +66,7 @@ class register_controller extends base_controller
                 $this->loadModel('register_admin');
 
                 if ($this->model->checkExist($username, $email)) {
-                    Helper::setError('sys', 'Tài khoản hoặc Email đã tồn tại nhé con chớ');
+                    Helper::setError('sys', 'Tài khoản hoặc Email đã tồn tại nhé con chó');
                     header("Location:" . BASE_PATH . "/admin/register");
                 } else {
                     $result = $this->model->add($username, $password, $email);

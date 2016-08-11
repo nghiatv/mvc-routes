@@ -28,10 +28,9 @@ class login_controller extends base_controller
         if (isset($_POST['username']) && isset($_POST['password'])) {
 
 
-
             $username = $_POST['username'];
             $password = $_POST['password'];
-            Helper::oldInputLogin($username,$password);
+            Helper::oldInputLogin($username, $password);
             $flag = 0;
 
             if (!Validation::isValidUser($username)) {
@@ -52,6 +51,9 @@ class login_controller extends base_controller
                 if ($this->model->checkLogin($username, $password)) {
 //                    Helper::setMes('success', "Đăng nhập thành công");
                     $_SESSION['admin'] = $username;
+                    $_SESSION['admin_id'] = $this->model->getIdByName($username)['id'];
+                    unset($_SESSION['input']);
+//                    unset($_SESSION['admin_id']);
                     header("Location:" . BASE_PATH . "/admin ");
                 } else {
                     Helper::setError('system', "Tài khoản mật khẩu không  đúng ");
@@ -70,6 +72,7 @@ class login_controller extends base_controller
     public function logout()
     {
         unset($_SESSION['admin']);
+        unset($_SESSION['admin_id']);
         header('Location:' . BASE_PATH . '/admin/login');
     }
 

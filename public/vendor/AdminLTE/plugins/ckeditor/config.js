@@ -34,16 +34,21 @@ CKEDITOR.editorConfig = function (config) {
     config.format_tags = 'p;h1;h2;h3;h4;pre';
 
     // Simplify the dialog windows.
-    config.removeDialogTabs = 'image:advanced;link:advanced';
-    config.filebrowserBrowseUrl = 'http://localhost/mvc-routes/ckfinder/ckfinder.html';
 
-    config.filebrowserImageBrowseUrl = 'http://localhost/mvc-routes/ckfinder/ckfinder.html?type=Images';
 
-    config.filebrowserFlashBrowseUrl = 'http://localhost/mvc-routes/ckfinder/ckfinder.html?type=Flash';
 
-    config.filebrowserUploadUrl = 'http://localhost/mvc-routes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
 
-    config.filebrowserImageUploadUrl = 'http://localhost/mvc-routes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
 
-    config.filebrowserFlashUploadUrl = 'http://localhost/mvc-routes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+    //config.removeDialogTabs = 'image:advanced;link:advanced';
+    //config.filebrowserBrowseUrl = '/ckfinder/ckfinder.html';
+    //
+    //config.filebrowserImageBrowseUrl = 'http://localhost/mvc-routes/ckfinder/ckfinder.html?type=Images';
+    //
+    //config.filebrowserFlashBrowseUrl = 'http://localhost/mvc-routes/ckfinder/ckfinder.html?type=Flash';
+    //
+    //config.filebrowserUploadUrl = 'http://localhost/mvc-routes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+    //
+    //config.filebrowserImageUploadUrl = 'http://localhost/mvc-routes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+    //
+    //config.filebrowserFlashUploadUrl = 'http://localhost/mvc-routes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
 };

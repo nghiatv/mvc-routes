@@ -42,8 +42,12 @@
             <?php endforeach; ?>
             <!-- Pager -->
             <ul class="pager">
-
-                <?php if ($current_page > 1) : ?>
+                <?php if ($current_page > $total_page) : ?>
+                    <li class="back_to_home">
+                        <a style="float: left" href="<?php echo BASE_PATH ?>"> Back to homepage </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($current_page > 1 && $current_page <= $total_page) : ?>
                     <li class="prev">
                         <a style="float: left" href="?page=<?php echo($current_page - 1) ?>">&#x2190; Newer Posts </a>
                     </li>

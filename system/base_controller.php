@@ -31,6 +31,7 @@ class base_controller
         extract($param);
         require dirname(PATH_APPLICATION) . "/resources/views/admin/" . $view . ".php";
     }
+
     public function loadModel($model)
     {
         $model = strtolower($model) . "_model";

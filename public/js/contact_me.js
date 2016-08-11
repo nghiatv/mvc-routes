@@ -1,13 +1,13 @@
 // Contact Form Scripts
 
-$(function() {
+$(function () {
 
     $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
         preventSubmit: true,
-        submitError: function($form, event, errors) {
+        submitError: function ($form, event, errors) {
             // additional error messages or events
         },
-        submitSuccess: function($form, event) {
+        submitSuccess: function ($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
             var name = $("input#name").val();
@@ -20,7 +20,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "./mail",
                 type: "POST",
                 data: {
                     name: name,
@@ -28,21 +28,21 @@ $(function() {
                     email: email,
                     message: message
                 },
-                cache: false,
-                success: function() {
+                cache: true,
+                success: function () {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>Your message has been sent. </strong>");
+                        .append("<strong>Gửi được rồi chờ hơi lâu tý thôi </strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
-                error: function() {
+                error: function () {
                     // Fail message
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -52,14 +52,20 @@ $(function() {
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
+                beforeSend: function () {
+                    $("#sendMail").addClass("fa fa-spin fa-spinner");
+                },
+                complete: function () {
+                    $("#sendMail").removeClass("fa fa-spin fa-spinner");
+                }
             });
         },
-        filter: function() {
+        filter: function () {
             return $(this).is(":visible");
         },
     });
 
-    $("a[data-toggle=\"tab\"]").click(function(e) {
+    $("a[data-toggle=\"tab\"]").click(function (e) {
         e.preventDefault();
         $(this).tab("show");
     });
@@ -67,6 +73,6 @@ $(function() {
 
 
 /*When clicking on Full hide fail/success boxes */
-$('#name').focus(function() {
+$('#name').focus(function () {
     $('#success').html('');
 });
