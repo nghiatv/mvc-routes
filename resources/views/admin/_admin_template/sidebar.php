@@ -34,7 +34,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo BASE_PATH?>/admin/post/create"><i class="fa fa-circle-o"></i> Tất cả bài viết</a></li>
+                    <li><a href="<?php echo BASE_PATH?>/admin/post"><i class="fa fa-circle-o"></i> Tất cả bài viết</a></li>
                     <li><a href="<?php echo BASE_PATH?>/admin/post/create"><i class="fa fa-circle-o"></i> Thêm mới bài viết</a></li>
                 </ul>
             </li>

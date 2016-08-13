@@ -27,7 +27,7 @@
                         </h2>
                     </a>
                     <h4 class="post-subtitle" style="font-weight: 300">
-                        <span><?php echo substr($row['content'], 0, 200); ?>
+                        <span><?php echo strip_tags(substr($row['content'], 0, 200)); ?>
                             <a href="post/<?php echo $row['id'] ?>"> <span class="see-more"><h3> See more</h3></span>
                             </a>
                             </span>

@@ -27,7 +27,7 @@ class index_model extends base_model
 
     public function getData($limit = 5, $page = 1)
     {
-        $sql = "SELECT p.*, u.user_name FROM posts p INNER JOIN users u ON p.user_ID = u.id";
+        $sql = "SELECT p.*, u.user_name FROM posts p INNER JOIN users u ON p.user_ID = u.id  ORDER BY p.created_time DESC";
         if ($limit !== 'all') {
             $sql .= " LIMIT " . (($page - 1) * $limit) . "," . $limit;
         }

@@ -20,41 +20,43 @@ class application_admin
 
 
         $controller = empty($this->controller) ? 'dashboard' : $this->controller;
-
-        $controller = strtolower($controller)."_controller";
+        $controller = strtolower($controller) . "_controller";
         $action = empty($this->action) ? 'view' : $this->action;
-        //KIEM TRA FILE CO TON TAI HAY KHONG?
-//        echo "<pre>";var_dump($this->param);echo "</pre>"; exit;
 
-        if (!file_exists(PATH_APPLICATION . "/backend/controller/".$controller.".php")){
+
+//        echo "<pre>";var_dump($action);echo "</pre>"; exit;
+        //KIEM TRA FILE CO TON TAI HAY KHONG?
+
+        if (!file_exists(PATH_APPLICATION . "/backend/controller/" . $controller . ".php")) {
 //            header("Location:".BASE_PATH."/p404");
             die("Controller not found");
         }
 
-        require PATH_APPLICATION."/backend/controller/".$controller.".php";
+        require PATH_APPLICATION . "/backend/controller/" . $controller . ".php";
         // KIEM TRA XEM CLASS CO TON TAI HAY KHONG?
         $controllerObj = new $controller();
-        if(!class_exists($controller)){
+        if (!class_exists($controller)) {
 //            header("Location:".BASE_PATH."/p404");
             die("class controller not found");
         }
 
 
         //Kiem tra xem method co ton tai hay ko?
-        if(method_exists($controller,$action)){
-            if(!empty($this->param)){
-                call_user_func_array(array($controllerObj,$action), $this->param);
-            }else{
+        if (method_exists($controller, $action)) {
+            if (!empty($this->param)) {
+                call_user_func_array(array($controllerObj, $action), $this->param);
+            } else {
                 $controllerObj->{$action}();
             }
-        }else{
+        } else {
 
             die("Method not found");
-            header("Location:".BASE_PATH."/p404");
+            header("Location:" . BASE_PATH . "/p404");
         }
 
 
     }
+
     private function request_path()
     {
         $request_uri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
@@ -82,7 +84,7 @@ class application_admin
             $url = explode("/", $url); // cat theo dau / de lay gia tri
             $this->controller = isset($url[1]) ? $url[1] : null; // dau tien se la controller xu ly
             $this->action = isset($url[2]) ? $url[2] : null; // tiep theo la action
-            unset($url[0],$url[1],$url[2]); // cat controller ra khoi mang
+            unset($url[0], $url[1], $url[2]); // cat controller ra khoi mang
 
             $this->param = array_values($url);
         }

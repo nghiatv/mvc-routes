@@ -16,7 +16,8 @@ class post_model extends base_model
                 FROM posts
                 INNER JOIN users ON posts.user_ID = users.id
                 INNER JOIN categories ON categories.id = posts.category_ID
-                WHERE posts.id = ?";
+                WHERE posts.id = ?
+                ORDER BY posts.created_time DESC";
 
         try {
             $this->stmt = $this->conn->prepare($sql);

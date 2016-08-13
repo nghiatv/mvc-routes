@@ -28,10 +28,49 @@
 
             <div class="box box-info">
                 <div class="box-body">
+
+
+
                    <form method="post" action="">
                        <div class="row" style="margin-bottom: 10px;">
                            <div class="col-sm-12">
                                <div class="toolbar">
+
+                                   <?php if(isset($_SESSION['error'])) : ?>
+
+                                       <div class="alert alert-danger alert-dismissible">
+                                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                           </button>
+                                           <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                                           <ul>
+                                               <?php foreach ($_SESSION['error'] as $row): ?>
+                                                   <li> <?php echo $row; ?></li>
+                                               <?php endforeach; ?>
+
+                                           </ul>
+                                       </div>
+
+                                   <?php endif; ?>
+
+
+                                   <?php if(isset($_SESSION['mes'])) : ?>
+
+                                       <div class="alert alert-success alert-dismissible">
+                                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                               ×
+                                           </button>
+                                           <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                                           <ul>
+                                               <?php foreach ($_SESSION['mes'] as $row): ?>
+                                                   <li> <?php echo $row; ?></li>
+                                               <?php endforeach; ?>
+
+                                           </ul>
+                                       </div>
+
+                                   <?php endif; ?>
+
+
                                    <a href="<?php echo BASE_PATH; ?>/admin/posts">
                                        <button type="button" class="btn btn-default">
                                            <i class="fa fa-angle-left"></i> Back
@@ -109,4 +148,15 @@
 
 </div>
 <!-- ./wrapper -->
+
+<script>
+    var roxyFileman = '<?php echo BASE_PATH?>/public/fileman/index.html';
+    $(function(){
+        CKEDITOR.replace( 'editor1',{
+            filebrowserBrowseUrl:roxyFileman,
+            filebrowserImageBrowseUrl:roxyFileman+'?type=image',
+            removeDialogTabs: 'link:upload;image:upload'});
+    });
+</script>
+<?php unset($_SESSION['error'], $_SESSION['mes']) ?>
 <?php include '_admin_template/footer.php' ?>
