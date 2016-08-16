@@ -5,6 +5,7 @@ $(function () {
     $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
         preventSubmit: true,
         submitError: function ($form, event, errors) {
+            console.log(errors);
             // additional error messages or events
         },
         submitSuccess: function ($form, event) {
@@ -29,7 +30,8 @@ $(function () {
                     message: message
                 },
                 cache: true,
-                success: function () {
+                success: function (data) {
+                    console.log(data);
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -42,7 +44,8 @@ $(function () {
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
-                error: function () {
+                error: function (e) {
+                    console.log(e);
                     // Fail message
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -62,7 +65,7 @@ $(function () {
         },
         filter: function () {
             return $(this).is(":visible");
-        },
+        }
     });
 
     $("a[data-toggle=\"tab\"]").click(function (e) {

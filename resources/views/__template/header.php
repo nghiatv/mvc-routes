@@ -12,7 +12,7 @@
     <title>TEC Blog</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo BASE_PATH ?>/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="<?php echo BASE_PATH ?>/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Theme CSS -->
     <link href="<?php echo BASE_PATH ?>/public/css/clean-blog.min.css" rel="stylesheet" type="text/css">

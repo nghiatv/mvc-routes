@@ -6,8 +6,7 @@
  * Date: 8/11/16
  * Time: 10:14 AM
  */
-
-include dirname(PATH_APPLICATION) . "/libs/PHPMailer/PHPMailerAutoload.php";
+require dirname(PATH_APPLICATION) . "/libs/PHPMailer/PHPMailerAutoload.php";
 
 class mail_controller extends base_controller
 {
@@ -61,7 +60,7 @@ class mail_controller extends base_controller
 
         $mail->AltBody = "This is the plain text version of the email content";
 
-        header("Location: ".BASE_PATH."/contact");
+        header("Location: " . BASE_PATH . "/contact");
 
         if (!$mail->send()) {
             echo "Mailer Error: " . $mail->ErrorInfo;

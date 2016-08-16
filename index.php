@@ -26,7 +26,10 @@ $admin_pattern = "/(\/admin).*$/";
 if (preg_match($admin_pattern, $_SERVER['REQUEST_URI'])) {
     $app = new application_admin();
 } else {
+
     $app = new application();
+
+
 }
 
 

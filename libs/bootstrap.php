@@ -9,24 +9,33 @@
 
 function __autoload($class)
 {
+
+    $filename = __DIR__ . "/" . $class . ".php";
+//    if (is_file($filename) && !class_exists($class)) {
+    require_once $filename;
+//    }
+
+    //Load PHPMailler package
+    require_once dirname(PATH_APPLICATION) . "/libs/PHPMailer/PHPMailerAutoload.php";
+
     // Load base controller
     if (!file_exists(dirname(PATH_APPLICATION) . "/system/base_controller.php")) {
         die("Base controller not found");
     }
-    require dirname(PATH_APPLICATION) . "/system/base_controller.php";
+    require_once dirname(PATH_APPLICATION) . "/system/base_controller.php";
 
     //Load base model
-
-
     if (!file_exists(dirname(PATH_APPLICATION) . "/system/base_model.php")) {
         die("Base model not found");
     }
-    require dirname(PATH_APPLICATION) . "/system/base_model.php";
+    require_once dirname(PATH_APPLICATION) . "/system/base_model.php";
+
 
     // auto load cac class nam cung thu muc
-    include_once __DIR__ . "/" . $class . ".php";
 
-//    include __DIR__."/PHPMailer/PHPMailerAutoload.php";
+
+//    require_once __DIR__ . "/" . $class . ".php";
+
 
 }
 
