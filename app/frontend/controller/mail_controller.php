@@ -52,7 +52,7 @@ class mail_controller extends base_controller
         $mail->addAddress("nghiait0111@gmail.com", "Mình chứ ai!"); // den dia chỉ nao
         $mail->isHTML(true);
 
-        $mail->Subject = "Phản hồi từ thằng " . $name . " có mail là" . $email_address;
+        $mail->Subject = "Phản hồi từ thằng " . $name . " có mail là: " . $email_address;
         $mail->Body = "<h2>" . $name . "</h2>
                         <p>Với số điện thoại: " . $phone . "</p>
                         <p>Chửi mày là: " . $message . "</p>

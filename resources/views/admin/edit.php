@@ -32,24 +32,25 @@
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-sm-12">
                                 <div class="toolbar">
-                                    <?php if(isset($_SESSION['error'])) : ?>
+                                    <?php if (isset($_SESSION['error'])) : ?>
 
-                                    <div class="alert alert-danger alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
-                                        </button>
-                                        <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                                        <ul>
-                                            <?php foreach ($_SESSION['error'] as $row): ?>
-                                            <li> <?php echo $row; ?></li>
-                                            <?php endforeach; ?>
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                                ×
+                                            </button>
+                                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                                            <ul>
+                                                <?php foreach ($_SESSION['error'] as $row): ?>
+                                                    <li> <?php echo $row; ?></li>
+                                                <?php endforeach; ?>
 
-                                        </ul>
-                                    </div>
+                                            </ul>
+                                        </div>
 
                                     <?php endif; ?>
 
 
-                                    <?php if(isset($_SESSION['mes'])) : ?>
+                                    <?php if (isset($_SESSION['mes'])) : ?>
 
                                         <div class="alert alert-success alert-dismissible">
                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -111,13 +112,14 @@
 
                                 <div class="form-group">
                                     <label for="category">Danh mục*</label>
-
+<?php //echo "<pre>";var_dump($listCategories);echo "</pre>"; exit; ?>
                                     <div id="category">
                                         <select class=" form-control" name="category" required>
                                             <option selected value="">Chọn một chủ đề</option>
                                             <?php foreach ($listCategories as $row) : ?>
+
                                                 <option
-                                                    value="<?php echo $row['id']; ?>" <?php if ($oldData['status'] == $row['id']) echo "selected" ?> ><?php echo $row['category_name']; ?></option>
+                                                    value="<?php echo $row['id']; ?>" <?php if ($oldData['cate_id'] == $row['id']) echo "selected" ?> ><?php echo $row['category_name']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -147,15 +149,17 @@
 </div>
 
 
-<script>
-    var roxyFileman = '<?php echo BASE_PATH?>/public/fileman/index.html';
-    $(function(){
-        CKEDITOR.replace( 'editor1',{
-            filebrowserBrowseUrl:roxyFileman,
-            filebrowserImageBrowseUrl:roxyFileman+'?type=image',
-            removeDialogTabs: 'link:upload;image:upload'});
-    });
-</script>
+
 <!-- ./wrapper -->
 <?php unset($_SESSION['error'], $_SESSION['mes']) ?>
 <?php include '_admin_template/footer.php' ?>
+<script>
+    var roxyFileman = '<?php echo BASE_PATH?>/public/fileman/index.html';
+    $(function () {
+        CKEDITOR.replace('editor1', {
+            filebrowserBrowseUrl: roxyFileman,
+            filebrowserImageBrowseUrl: roxyFileman + '?type=image',
+            removeDialogTabs: 'link:upload;image:upload'
+        });
+    });
+</script>

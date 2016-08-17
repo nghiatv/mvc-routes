@@ -63,7 +63,7 @@ abstract class base_model
             echo "</pre>";
             exit;
         }
-        if ($this->getItemById($table, $id) !== false) {
+        if ($this->getById($table, $id) !== false) {
             return false;
         } else {
             return true;

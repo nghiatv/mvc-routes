@@ -68,10 +68,24 @@ class post_admin_model extends base_model
 
     public function getPostById($id)
     {
-        return parent::getById('posts', $id);
+        $sql = "SELECT posts.*, users.user_name, categories.category_name, categories.id as cate_id
+                FROM posts
+                INNER JOIN users ON users.id = posts.user_ID
+                INNER JOIN categories ON categories.id = posts.category_ID
+                WHERE posts.id = ?
+        ";
+
+        try{
+            $this->stmt = $this->conn->prepare($sql);
+            $this->stmt->bindParam(1,$id,PDO::PARAM_INT);
+            $this->stmt->execute();
+        } catch(PDOException $e){
+            die($e->getMessage());
+        }
+        return $this->stmt->fetch();
     }
     public function getAllPost(){
-        $sql = "SELECT posts.*, users.user_name, categories.category_name
+        $sql = "SELECT posts.*, users.user_name, categories.category_name, categories.id as cate_id
                 FROM posts
                 INNER JOIN users ON users.id = posts.user_ID
                 INNER JOIN categories ON categories.id = posts.category_ID

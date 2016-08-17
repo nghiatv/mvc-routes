@@ -16,7 +16,7 @@ function __autoload($class)
 //    }
 
     //Load PHPMailler package
-    require_once dirname(PATH_APPLICATION) . "/libs/PHPMailer/PHPMailerAutoload.php";
+//    require_once dirname(PATH_APPLICATION) . "/libs/PHPMailer/PHPMailerAutoload.php";
 
     // Load base controller
     if (!file_exists(dirname(PATH_APPLICATION) . "/system/base_controller.php")) {

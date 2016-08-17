@@ -22,6 +22,7 @@ $admin_pattern = "/(\/admin).*$/";
  *  nhe
  */
 
+//echo "<pre>";var_dump(Validation::isValidUser("ahihihihih"));echo "</pre>"; exit;
 
 if (preg_match($admin_pattern, $_SERVER['REQUEST_URI'])) {
     $app = new application_admin();
@@ -31,5 +32,3 @@ if (preg_match($admin_pattern, $_SERVER['REQUEST_URI'])) {
 
 
 }
-
-
