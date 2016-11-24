@@ -1,15 +1,16 @@
 <?php
-
 /**
  * Created by PhpStorm.
- * User: Nimo
- * Date: 08/08/2016
- * Time: 10:55 CH
+ * User: nghia
+ * Date: 11/24/16
+ * Time: 12:05
  */
-class about_controller extends base_controller
-{
-    function view($param = null){
-        $this->loadView('about');
-    }
+include 'controller.php';
 
+class about_controller extends controller
+{
+    function view()
+    {
+        $this->loadView('about-coroi');
+    }
 }

@@ -6,7 +6,10 @@
  * Date: 08/08/2016
  * Time: 10:05 CH
  */
-class index_model extends base_model
+
+include 'model.php';
+
+class index_model extends model
 {
     public $table = "posts";
 

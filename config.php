@@ -7,16 +7,16 @@
  */
 
 //Thong so ve database
-define("DB_TYPE",'mysql');
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_DBNAME', 'blog');
+//define("DB_TYPE",'mysql');
+//define('DB_HOST', 'localhost');
+//define('DB_USER', 'root');
+//define('DB_PASS', '');
+//define('DB_DBNAME', 'blog-v1');
 
 
 define('PATH_APPLICATION', __DIR__ . "/app");
 
-define('BASE_PATH',"http://localhost/mvc-routes");
+define('BASE_PATH',"http://localhost:8000");
 
 define('ENVIRONMENT', 'development');
 

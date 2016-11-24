@@ -1,12 +1,12 @@
 <?php
-
+namespace Libs;
 /**
  * Created by PhpStorm.
  * User: nghia
  * Date: 8/8/16
  * Time: 11:26 AM
  */
-class application
+class Application
 {
     private $controller;
     private $action = 'view';
@@ -28,7 +28,7 @@ class application
 //        echo "<pre>";var_dump($this->param);echo "</pre>"; exit;
 
         if (!file_exists(PATH_APPLICATION . "/frontend/controller/".$controller.".php")){
-          header("Location:".BASE_PATH."/p404");
+//          header("Location:".BASE_PATH."/p404");
         }
 
         require PATH_APPLICATION."/frontend/controller/".$controller.".php";
@@ -77,9 +77,9 @@ class application
             $url = $this->request_path; // truyen $url la doan url cat dc
             $url = filter_var($url, FILTER_SANITIZE_URL); // kiem tra voi filter
             $url = explode("/", $url); // cat theo dau / de lay gia tri
-            $this->controller = isset($url[0]) ? $url[0] : null; // dau tien se la controller xu ly
+            $this->controller = isset($url[0]) ? $url[0] : null; // dau tien se la Controllers xu ly
 //            $this->action = isset($url[1]) ? $url[0] : null; // tiep theo la action
-            unset($url[0]); // cat controller ra khoi mang
+            unset($url[0]); // cat Controllers ra khoi mang
 
             $this->param = array_values($url);
         }

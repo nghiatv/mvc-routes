@@ -7,7 +7,7 @@
  * Time: 2:53 PM
  */
 //use Validation;
-class base_controller
+class controller
 {
     public $model;
     public $view;

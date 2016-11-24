@@ -1,0 +1,12 @@
+{
+
+    "require": {
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "autoload": {
+      "psr-4": {
+        "Libs\\": "libs/",
+        "App\\": "app/"
+      }
+    }
+}

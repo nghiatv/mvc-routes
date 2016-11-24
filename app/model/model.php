@@ -6,7 +6,7 @@
  * Date: 8/8/16
  * Time: 2:53 PM
  */
-abstract class base_model
+abstract class model
 {
     protected $conn;
     protected $stmt;
@@ -15,7 +15,7 @@ abstract class base_model
     {
         try {
             $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
-            $this->conn = new PDO(DB_TYPE . ":host=" . DB_HOST . ";dbname=" . DB_DBNAME . ";charset=utf8", DB_USER, DB_PASS, $options);
+            $this->conn = new PDO(getenv('DB_TYPE'). ":host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_DBNAME') . ";charset=utf8", getenv('DB_USER'), getenv('DB_PASS'), $options);
 
         } catch (PDOException $e) {
             die($e->getMessage());

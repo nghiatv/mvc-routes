@@ -20,7 +20,8 @@
         }
     ],
     "require": {
-        "php": ">=5.0.0"
+        "php": ">=5.0.0",
+        "vlucas/phpdotenv": "v2.4.0"
     },
     "require-dev": {
         "phpdocumentor/phpdocumentor": "*",

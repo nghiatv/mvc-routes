@@ -9,11 +9,15 @@ session_start();
  * Date: 07/08/2016
  * Time: 8:01 CH
  */
-include "config.php";
 
-include "libs/bootstrap.php";
+require __DIR__ . '/vendor/autoload.php';
 
-$admin_pattern = "/(\/admin).*$/";
+require "config.php";
+
+
+
+
+//$admin_pattern = "/(\/admin).*$/";
 
 /*
  *  Cai dm tai thang  xammp no build nhu the nen phai chiu nhe.
@@ -23,12 +27,20 @@ $admin_pattern = "/(\/admin).*$/";
  */
 
 //echo "<pre>";var_dump(Validation::isValidUser("ahihihihih"));echo "</pre>"; exit;
-
-if (preg_match($admin_pattern, $_SERVER['REQUEST_URI'])) {
-    $app = new application_admin();
-} else {
-
-    $app = new application();
+$dotenv = new \Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
 
-}
+$app = new Libs\Application();
+
+//if (preg_match($admin_pattern, $_SERVER['REQUEST_URI'])) {
+//    $app = new application_admin();
+//} else {
+//
+//    $app = new application();
+//
+//
+//}
+
+//
+//
